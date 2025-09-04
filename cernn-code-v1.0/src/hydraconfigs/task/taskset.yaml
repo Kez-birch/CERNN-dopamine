@@ -1,0 +1,39 @@
+  ruleset: all
+  
+  rule_trains: 
+  - fdgo_s1
+  - fdgo_v1
+  - reactgo_s1
+  - reactgo_v1
+  - delaygo_s1
+  - delaygo_v1
+  - fdanti_s1
+  - fdanti_v1
+  - reactanti_s1
+  - reactanti_v1
+  - delayanti_s1
+  - delayanti_v1
+  # - dm1
+  # - dm2
+  # - contextdm1
+  # - contextdm2
+  # - multidm
+  # - delaydm1
+  # - delaydm2
+  # - contextdelaydm1
+  # - contextdelaydm2
+  # - multidelaydm
+  - dmsgo
+  - dmsnogo
+  - dmcgo
+  - dmcnogo
+  
+  mix_rule: true 
+
+  n_eachring: 2
+
+  in_type: normal
+
+  sigma_x: 0.01
+
+  trials_per_epoch: 200 # similar to 'evaluate every' 

@@ -1,0 +1,16 @@
+defaults: 
+  - _self_
+  - task: taskset
+  - model: CERNN_macaque
+  - train: local
+  - wandb: default_wandb
+  - override hydra/hydra_logging: disabled  
+  - override hydra/job_logging: disabled  
+
+hydra:   
+  output_subdir: null  
+  run:  
+    dir: .
+  
+seed: 0
+

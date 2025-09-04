@@ -1,0 +1,5 @@
+project: 'CERNN_dopamine_tests_2'
+entity: 'qq24393-university-of-bristol'
+notes: ''
+tags: []
+mode: 'online' # {'online', 'disabled', 'run', 'offline', 'dryrun'}

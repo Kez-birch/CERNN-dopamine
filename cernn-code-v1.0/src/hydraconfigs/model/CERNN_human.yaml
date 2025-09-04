@@ -1,0 +1,85 @@
+name: "cernn"
+
+species: human
+
+noise: true
+sigma_rec: 0.01
+
+w_rec_init: "kaiming" # randortho, randn, randu, kaiming, diag
+activation: "relu"
+
+regularisers: 
+  # l1_activity_regulariser : 
+  #   lambd: 1e-8
+  # l2_activity_regulariser : 
+  #  lambd: 0.00001
+  # l1_weight_regulariser : 
+  #   lambd: 1e-7
+  # l2_weight_regulariser : 
+  #   lambd: 1e-7
+  SE : 
+    lambd: 1e-6
+    distance_matrix: resolve
+    ramping: false
+    dependency: "linear"  # Can be 'linear', 'quadratic', or 'exponential'
+    mode: "L2"
+  l1_sensory_activity_regulariser : 
+    lambd: 5e-8
+    sensory_indices: resolve
+  # l2_sensory_activity_regulariser :
+  #   lambd: 1e-6
+  #   sensory_indices: resolve
+  intra_area_penalty:
+    lambd: 1e-9
+    area_mask: resolve
+    penalty_type: "L1"
+  self_conn_reg:
+    lambd: 1e-9
+    diag_mask: resolve
+  # wiring_entropy_regulariser:
+  #   lambd: 1e-8
+  #   distance_matrix: resolve
+  # dmn_activity_regulariser:
+  #   lambd: 0.001
+  #   dmn_type: "core"        # or "extended"
+  #   penalty_type: "l2"      # or "l1"
+  # inputs_sum_to_av: 
+  #   lambd: 1e-8  
+  #   duplicates: resolve 
+  #   areas: resolve
+  #   species: human
+  
+
+constraints: 
+  mask_within_area_weights: false 
+  # if zero_weights_thres > 0, weights below this value are masked in forward pass (and analysis) 
+  zero_weights_thres: 0.001
+
+tau: 100 
+dt: 20
+
+# optimisation
+loss_type: "lsq"
+optimizer: "adam"
+
+clip_grads: true
+clip_grad_value: 1 
+
+# path to pretrained model
+from_pretrained: null
+
+learning_rate: 0.001
+
+target_perf: 0.85
+
+
+sensory: ["L_V1", "L_3b"]
+motor: ["L_FEF"]
+
+duplicate: {"L_V1": 5, "L_FEF": 5, "L_3b": 5}
+# duplicate: {"all": 10}
+# duplicate: {"L_V1": 5, "L_FEF": 5, "L_3b": 5, rest: 2}
+
+
+
+

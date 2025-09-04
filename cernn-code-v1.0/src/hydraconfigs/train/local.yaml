@@ -1,0 +1,11 @@
+name: "local"
+batch_size_train: 128
+batch_size_val: 16
+batch_size_test: 16
+epochs: 200
+n_workers: 1
+
+l2_weight_init: 0
+p_weight_train: null
+
+fast_dev_run: false

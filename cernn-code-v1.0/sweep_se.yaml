@@ -1,0 +1,41 @@
+program: src/train_rnn_multitask.py
+method: random
+metric:
+  goal: maximize
+  name: val_perf
+parameters:
+  model.decay: 
+    values: 
+      [0.1, 0.2, 0.4, 0.6]
+  model.learning_rate: 
+    values: 
+      [0.001, 0.005, 0.01]
+  model.activation: 
+    values: 
+      ["softplus", "relu"]
+  model.l1_labda:
+    values:
+      [0.0001, 0.001, 0.01]
+  model.l1_weight:
+    values:
+      [0.0001, 0.001]
+  model.l2_weight:
+    values:
+      [0.0001, 0.001]
+  model.l1_h:
+    values:
+      [0.0001, 0.001]
+  model.l2_h:
+    values:
+      [0.0001, 0.001]
+
+
+command:
+  - ${env}
+  - python
+  - ${program}
+  - ${args_no_hyphens}
+  - model=leaky_rnn_se
+  - model.io = False
+
+

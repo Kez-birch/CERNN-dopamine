@@ -1,0 +1,17 @@
+name: "bp"
+batch_size_train: 64
+batch_size_val: 64
+batch_size_test: 64
+epochs: 200
+
+accelerator: "gpu" 
+n_workers: 2
+strategy: ddp  
+num_nodes: 1
+devices: -1
+
+l2_weight_init: 0
+p_weight_train: null
+
+fast_dev_run: false
+

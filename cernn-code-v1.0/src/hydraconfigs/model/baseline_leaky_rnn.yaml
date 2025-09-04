@@ -1,0 +1,47 @@
+name: "leaky_rnn"
+n_rnn: 180
+n_input: 25
+n_output: 3
+
+sigma_rec: 0.01  
+noise: true
+
+w_rec_init: "kaiming" # randortho, randn, randu, kaiming, diag 
+activation: "relu" # softplus, relu, tanh
+
+regularisers: 
+  l1_activity_regulariser : 
+    lambd: 0
+  # l2_activity_regulariser : 
+  #  lambd: 0.00001
+  # l1_weight_regulariser : 
+  #   lambd: 1e-7
+  # l2_weight_regulariser : 
+  #   lambd: 1e-7
+
+constraints: 
+  mask_within_area_weights: false 
+  zero_weights_thres: 0.01
+  
+
+
+# input and output units
+# duplicate: {"L_V1": 1, "L_FEF": 1, "L_3b": 1}
+duplicate: {}
+
+tau: 100 
+dt: 20
+
+# optimisation
+loss_type: "lsq" # if this is anything else it goes to CE (either CE or LSQ)
+optimizer: "adam"
+
+clip_grads: true
+clip_grad_value: 1 
+
+from_pretrained: null
+
+learning_rate: 0.001
+
+target_perf: 0.95
+

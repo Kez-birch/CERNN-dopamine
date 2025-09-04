@@ -1,0 +1,15 @@
+hydra-core
+matplotlib
+mne
+mne_connectivity
+numpy
+omegaconf
+pandas
+pytorch_lightning
+PyYAML
+PyYAML
+scipy
+seaborn
+six
+torch
+wandb

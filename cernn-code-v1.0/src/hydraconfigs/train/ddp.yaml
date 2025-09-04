@@ -1,0 +1,24 @@
+name: "ddp"
+
+# data loader 
+batch_size_train: 64
+batch_size_val: 64
+batch_size_test: 64
+n_workers: 2
+
+epochs: 200
+
+# distributed training
+accelerator: "gpu" 
+strategy: ddp  
+num_nodes: 1
+devices: -1
+# gpus: -1 # all available
+
+l2_weight_init: 0
+p_weight_train: null
+
+target_perf: 0.95
+
+fast_dev_run: false
+
